@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, Text, View, TouchableHighlight, StyleSheet, TextInput, ActivityIndicator } from 'react-native';
+import { AppRegistry, Text, View, TouchableHighlight, StyleSheet, TextInput, ActivityIndicator, ImageBackground } from 'react-native';
 import { Constants } from 'expo';
 
 export default class App extends Component {
@@ -85,6 +85,10 @@ export default class App extends Component {
 
         return (
             <View style={styles.container}>
+            <ImageBackground
+                    style={styles.imgBackground}
+                    source={{ uri: 'http://standardflags.com/shop/wp-content/uploads/2013/01/Nylon-American-Flag-closeup-1.jpg' }}
+                >
                 <Text style={styles.paragraph}>
                     Currency Converter App
                 </Text>
@@ -92,7 +96,7 @@ export default class App extends Component {
                 <TextInput
                     value={this.state.inputValue}
                     onChangeText={this._handleTextChange}
-                    style={{ width: 200, height: 44, padding: 8, borderColor: 'darkblue', borderWidth: 1, marginTop: 10, color: 'dodgerblue'}}
+                    style={{ width: 250, height: 44, padding: 8, borderColor: 'darkblue', borderWidth: 1, marginTop: 10, color: 'white'}}
                 />
                 <View style={styles.row}>
                 
@@ -184,7 +188,7 @@ export default class App extends Component {
                 <Text style={styles.paragraph}>
                     Converted Value: {this.state.newBal.toFixed(2)}
                 </Text>
-                
+                </ImageBackground>
             </View>
       );
    }
@@ -208,7 +212,11 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         marginHorizontal: 5,
         backgroundColor: 'darkblue',
-        color: 'dodgerblue',
+        color: 'lightblue',
+        borderRadius: 20,
+    },
+    buttonText:{
+        color: 'white',
     },
     row: {
         flexDirection: 'row',
@@ -216,7 +224,14 @@ const styles = StyleSheet.create({
         
     },
     paragraph: {
-        fontSize: 16,
+        fontSize: 20,
         color: 'red', 
+    },
+    imgBackground:{
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
+        flex: 1,
     },
 });
